@@ -1,10 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import React, { Suspense } from "react";
+import { BrowserRouter } from "react-router";
+import { createRoot } from "react-dom/client";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+import { User } from "./contexts/User.jsx";
+
+import App from "./components/App.jsx";
+
+import "./index.css";
+
+createRoot(document.getElementById("root")).render(
+  <BrowserRouter basename="/museum-test">
+    <Suspense fallback="...is loading">
+      <User>
+        <App />
+      </User>
+    </Suspense>
+  </BrowserRouter>
+);
