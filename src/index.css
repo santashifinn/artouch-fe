@@ -52,6 +52,38 @@ li {
   list-style: none;
 }
 
+/* Loader */
+
+.center-loader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 40px;
+  max-width: 100%;
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  border: 20px solid #fefffe;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* Header */
 
 header {
@@ -126,6 +158,95 @@ header {
 
 .user-option:hover {
   background: #cecece;
+}
+
+/* Login and Sign up */
+
+.loginsignup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.loginsignup h2 {
+  padding: 10px 20px 0;
+  margin-bottom: 10px;
+}
+
+.loginsignup p {
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.loginsignup-password-info {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+}
+
+.loginsignup-password-true {
+  color: green;
+}
+
+.loginsignup-password-false {
+  color: red;
+}
+
+.loginsignup-link {
+  text-decoration: underline;
+  transition: all 0.3s ease-in-out;
+}
+
+.loginsignup-link:hover {
+  color: #3e86a3;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+}
+
+.signup-form label {
+  padding: 10px;
+  text-align: left;
+}
+
+.signup-form input {
+  font-family: Zen Maru Gothic, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  padding: 5px 15px;
+  border: 2px solid #9c9c9c;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.signup-form button {
+  margin: auto;
+  margin-top: 20px;
+  background-color: #cecece;
+  width: 200px;
+  padding: 10px;
+  border: 2px solid #9c9c9c;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.signup-form button:hover {
+  background-color: #9c9c9c;
+  border: 2px solid #5f5353;
+  color: #fefffe;
 }
 
 /* Computer screen CSS */

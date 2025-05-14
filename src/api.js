@@ -8,7 +8,12 @@ const api = axios.create({
 
 const getUserByUsername = (username) => {
   return api.get(`/users/${username}`).then(({ data }) => {
-    console.log(data);
+    return data;
+  });
+};
+
+const signIn = (userInfo) => {
+  return api.post(`/users/signin`, userInfo).then(({ data }) => {
     return data;
   });
 };
@@ -21,6 +26,4 @@ const getUserByUsername = (username) => {
 
 // Exporting functions
 
-export {
-  getUserByUsername
-};
+export { getUserByUsername, signIn };

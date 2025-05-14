@@ -16,6 +16,7 @@ const Header = () => {
 
     const handleLogout = () => {
       setUserOpen(!userOpen);
+      localStorage.removeItem("user");
       setUser(null);
       alert("Successfully logged out.");
     };
