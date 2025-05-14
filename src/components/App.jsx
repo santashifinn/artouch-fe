@@ -48,7 +48,17 @@ const App = () => {
 
         <Route path="/user" element={<Userpage />} />
 
-        <Route path="/signup" element={<SignUp />} />
+        <Route
+          path="/signup"
+          element={
+            <SignUp
+              error={error}
+              setError={setError}
+              loading={loading}
+              setLoading={setLoading}
+            />
+          }
+        />
 
         <Route
           path="/login"

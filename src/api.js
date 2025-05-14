@@ -18,6 +18,12 @@ const signIn = (userInfo) => {
   });
 };
 
+const signUp = (userInfo) => {
+  return api.post(`/users/signup`, userInfo).then((data) => {
+    return data;
+  });
+};
+
 //Museum API calls
 
 //Rijksmuseum
@@ -26,4 +32,4 @@ const signIn = (userInfo) => {
 
 // Exporting functions
 
-export { getUserByUsername, signIn };
+export { getUserByUsername, signIn, signUp };
