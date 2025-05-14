@@ -1,3 +1,5 @@
+import FaveButton from "./FaveButton";
+
 const ArtExhibition = () => {
   return (
     <>

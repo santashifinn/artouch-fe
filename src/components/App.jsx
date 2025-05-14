@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { UserContext } from "../contexts/User";
+
 import { Routes, Route } from "react-router";
 
 import Header from "./Header";
@@ -10,6 +13,8 @@ import Login from "./Login";
 import NotFound from "./NotFound";
 
 const App = () => {
+  const [user, setUser] = useContext(UserContext);
+
   return (
     <>
       <Header />
