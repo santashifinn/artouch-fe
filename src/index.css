@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General */
+
+:root {
+  font-family: Zen Maru Gothic, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  background-color: #e2e2e2;
+  color: #5f5353;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.strong {
+  font-weight: 800;
+}
+
+.italics {
+  font-style: italic;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.teal-colour {
+  color: #3e86a3;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  font-family: Fascinate Inline, Arial, Helvetica, sans-serif;
+  font-size: 50px;
+  padding: 20px 40px 5px;
+  border-bottom: 3px solid #5f5353;
+}
+
+.user-icon-container {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+  width: fit-content;
+  height: 52px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.user-icon-container:hover {
+  filter: brightness(0) saturate(100%) invert(48%) sepia(64%) saturate(378%)
+    hue-rotate(152deg) brightness(86%) contrast(91%);
+}
+
+.user-button {
+  left: 0;
+  width: 50px;
+}
+
+.header-text {
+  right: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-text:hover {
+  color: #3e86a3;
+}
+
+.user-dropdown {
+  z-index: 100;
+  position: absolute;
+  right: 0;
+  top: 90px;
+  width: 150px;
+  background: #ebebeb;
+  font-family: Zen Maru Gothic, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#user-dropdown-first {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#user-dropdown-last {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.user-option {
+  width: 100%;
+  padding: 10px;
+  background: #ebebeb;
+  transition: all 0.3s ease-in-out;
+}
+
+.user-option:hover {
+  background: #cecece;
+}
+
+/* Computer screen CSS */
+
+@media only screen and (min-width: 1000px) {
+}
+
+/* Tablet screen CSS */
+
+@media only screen and (min-width: 750px) and (max-width: 1000px) {
+}
+
+/* Big phone screen CSS */
+
+@media only screen and (max-width: 440px) {
+  header {
+    font-size: 40px;
+    padding: 10px 20px 5px;
+  }
+
+  .user-dropdown {
+    top: 70px;
+  }
+}
+
+/* Medium phone screen CSS */
+
+@media only screen and (max-width: 374px) {
+}
+
+/* Small phone screen CSS */
+
+@media only screen and (max-width: 340px) {
+  header {
+    font-size: 38px;
+    padding: 10px 15px 5px;
+  }
+
+  .user-icon-container {
+    margin: 6px 0;
+    height: 45px;
+  }
+
+  .user-button {
+    width: 45px;
+  }
+}

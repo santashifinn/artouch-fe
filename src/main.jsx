@@ -9,7 +9,7 @@ import App from "./components/App.jsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename="/museum-test">
+  <BrowserRouter>
     <Suspense fallback="...is loading">
       <User>
         <App />
