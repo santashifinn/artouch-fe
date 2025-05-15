@@ -28,8 +28,55 @@ const signUp = (userInfo) => {
 
 //Rijksmuseum
 
+const rijksApi = axios.create({
+  baseURL: "https://www.rijksmuseum.nl/api/en/collection",
+});
+
+const rijksApiKey = import.meta.env.VITE_RIJKS_API_KEY;
+
+const getRijks = (type, q, p) => {
+  return rijksApi
+    .get("", {
+      params: {
+        imgonly: true,
+        type: type,
+        q: q,
+        p: p,
+        ps: 5,
+        key: rijksApiKey,
+      },
+    })
+    .then(({ data }) => {
+      return data;
+    });
+};
+
 //Cleveland Museum
 
-// Exporting functions
+const clevelandApi = axios.create({
+  baseURL: "https://openaccess-api.clevelandart.org/api/artworks/",
+});
 
-export { getUserByUsername, signIn, signUp };
+const getCleveland = (type, q, p) => {
+  const adjustedType = !type
+    ? type
+    : type.split("")[0].toUpperCase() + type.slice(1);
+  const offset = p * 10;
+  return clevelandApi
+    .get("", {
+      params: {
+        has_image: 1,
+        type: adjustedType,
+        q: q,
+        limit: 5,
+        skip: offset,
+      },
+    })
+    .then(({ data }) => {
+      return data;
+    });
+};
+
+// Exporting
+
+export { getUserByUsername, signIn, signUp, getRijks, getCleveland };

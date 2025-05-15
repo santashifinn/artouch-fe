@@ -1,7 +1,9 @@
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../contexts/User";
 
-import { Routes, Route } from "react-router";
+import { Routes, Route, useSearchParams } from "react-router";
+
+import { getRijks, getCleveland } from "../api";
 
 import Header from "./Header";
 import NavBar from "./NavBar";
@@ -18,6 +20,17 @@ const App = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const [works, setWorks] = useState([]);
+  const [totalWorks, setTotalWorks] = useState(0);
+
+  const [searchParams, setSearchParams] = useSearchParams("");
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const type = searchParams.get("type");
+  const q = searchParams.get("q");
+  const p = searchParams.get("p");
+
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -28,6 +41,21 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
+
+  useEffect(() => {
+    setLoading(true);
+    Promise.all([getRijks(type, q, p), getCleveland(type, q, p)])
+      .then((data) => {
+        setTotalWorks(data[0].count + data[1].info.total);
+        setWorks((works) => [...data[0].artObjects, ...data[1].data]);
+
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError("An error has occurred.");
+        setLoading(false);
+      });
+  }, [type, q, p]);
 
   return (
     <>
@@ -40,7 +68,11 @@ const App = () => {
             <>
               <NavBar />
               <PageNav />
-              <ArtExhibition />
+              <ArtExhibition
+                error={error}
+                loading={loading}
+                works={works}
+              />
               <PageNav />
             </>
           }

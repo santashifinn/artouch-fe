@@ -171,6 +171,140 @@ header {
   background: #cecece;
 }
 
+/* Filter/Search Navigation Bar */
+
+/* Dropdown Filter */
+
+/* Search Bar */
+
+/* Page Navigation Bar */
+
+/* Artworks / Search Results */
+
+.works-previews-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.works-previews-card {
+  display: flex;
+  position: relative;
+  width: 400px;
+  max-width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 10px;
+  box-shadow: 0 0 10px 5px #cecece;
+}
+
+.works-previews-image img {
+  max-height: 400px;
+  transition: all 0.3s ease-in-out;
+}
+
+.works-previews-image img:hover {
+  transform: scale(1.05);
+}
+
+.works-previews-text-back {
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 300px;
+  width: 160px;
+  background-color: #fefffe;
+}
+
+.works-previews-text {
+  z-index: 3;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 300px;
+  width: 160px;
+  background-color: #fefffe;
+  text-align: center;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  overflow: scroll;
+}
+
+.works-previews-text:hover {
+  position: absolute;
+  transform: translateX(-10%);
+}
+
+.works-preview-text-title {
+  font-family: Andika, Arial, Helvetica, sans-serif;
+}
+
+.works-preview-text-creator {
+  font-family: Zen Maru Gothic, Arial, Helvetica, sans-serif;
+}
+
+/* Favourite Button */
+
+/* Favourite Dropdown */
+
+/* Lightbox */
+
+#lightbox {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: #44b1f099;
+}
+
+.works-individual {
+  display: flex;
+  flex-direction: column;
+  background-color: #fefffe;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  height: fit-content;
+  max-height: 90%;
+  max-width: 90%;
+  border: 3px solid #fefffe;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px 5px #cecece;
+}
+
+.works-individual img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.works-individual-text {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  font-style: inherit;
+  background-color: #fefffe99;
+}
+
 /* Login and Sign up */
 
 .loginsignup {
@@ -260,6 +394,8 @@ header {
   color: #fefffe;
 }
 
+/* Userpage */
+
 /* Computer screen CSS */
 
 @media only screen and (min-width: 1000px) {
@@ -268,11 +404,16 @@ header {
 /* Tablet screen CSS */
 
 @media only screen and (min-width: 750px) and (max-width: 1000px) {
+  /* Artworks / Search Results */
+  .works-previews-card {
+    width: 350px;
+  }
 }
 
 /* Big phone screen CSS */
 
 @media only screen and (max-width: 440px) {
+  /* Header */
   header {
     font-size: 40px;
     padding: 10px 20px 5px;
@@ -281,16 +422,26 @@ header {
   .user-dropdown {
     top: 70px;
   }
+
+  /* Artworks / Search Results */
+  .works-previews-card {
+    width: 350px;
+  }
 }
 
 /* Medium phone screen CSS */
 
 @media only screen and (max-width: 374px) {
+  /* Artworks / Search Results */
+  .works-previews-card {
+    width: 330px;
+  }
 }
 
 /* Small phone screen CSS */
 
 @media only screen and (max-width: 340px) {
+  /* Header */
   header {
     font-size: 38px;
     padding: 10px 15px 5px;
@@ -303,5 +454,39 @@ header {
 
   .user-button {
     width: 45px;
+  }
+
+  /* Artworks / Search Results */
+  .works-previews-card {
+    width: 300px;
+    height: 400px;
+    flex-direction: column;
+  }
+
+  .works-previews-image img {
+    width: 400px;
+  }
+
+  .works-previews-text-back {
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 100px;
+    width: 100%;
+  }
+
+  .works-previews-text {
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .works-previews-text:hover {
+    transform: translateY(-10%);
   }
 }
