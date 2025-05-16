@@ -66,13 +66,12 @@ const App = () => {
           path="/"
           element={
             <>
-              <NavBar />
-              <PageNav />
-              <ArtExhibition
-                error={error}
-                loading={loading}
-                works={works}
+              <NavBar
+                setSearchParams={setSearchParams}
+                setCurrentPage={setCurrentPage}
               />
+              <PageNav />
+              <ArtExhibition error={error} loading={loading} works={works} />
               <PageNav />
             </>
           }

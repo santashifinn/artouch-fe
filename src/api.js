@@ -58,9 +58,16 @@ const clevelandApi = axios.create({
 });
 
 const getCleveland = (type, q, p) => {
-  const adjustedType = !type
+  let adjustedType = !type
     ? type
     : type.split("")[0].toUpperCase() + type.slice(1);
+  if (adjustedType === "Furniture") {
+    adjustedType = "Furniture and woodwork";
+  } else if (adjustedType === "Jewellery") {
+    adjustedType = "Jewelry";
+  } else if (adjustedType === "Clothing") {
+    adjustedType = "Garment";
+  }
   const offset = p * 10;
   return clevelandApi
     .get("", {
