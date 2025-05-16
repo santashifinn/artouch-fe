@@ -14,11 +14,37 @@ ARTouch is a web app designed to make finding your new favourite artworks a fun 
 - This is the **front-end** repository.
 - You can find the **back-end** repository [here](https://github.com/santashifinn/artouch-be).
 
+## Key features
+
+### In short:
+
+ - **ARTouch** is a web app with a responsive UI that intuitively guides users to search, view, and create curated exhibitions of artworks from the [**Rijksmuseum**](https://www.rijksmuseum.nl/en) in Amsterdam and the [**Cleveland Museum of Art**](https://www.clevelandart.org/) in Ohio
+
+## How to use
+
+### Search options
+
+You can enter any word or term you like into the **search bar** and press **enter** to search.
+
+You can also **filter** the results further by these 10 **types** of work:
+- all (every type of work is included)
+- drawing
+- painting
+- sculpture
+- photograph
+- print
+- furniture
+- jewellery
+- clothing
+- embroidery
+
+
 ## Tech used
 
 This project was written in JavaScript, HTML and CSS and used:
 
 ### Frontend:
+
 - Vite
 - React
 - React Router
@@ -54,6 +80,7 @@ This project was written in JavaScript, HTML and CSS and used:
 ### Required dependencies - minimum versions needed to run project
 
 ### Frontend:
+
 - **Node.js** - v22.8.0
 - **Vite** - v6.3.5
 - **React** - v.19.1.0
@@ -62,11 +89,11 @@ This project was written in JavaScript, HTML and CSS and used:
 - **dotenv** - v.16.5.0
 - **eslint** - v. 9.25.0
 
-\*These will all be installed through the command  `npm install` and don't need to be installed separately.
+\*These will all be installed through the command `npm install` and don't need to be installed separately.
 
 ### Requirements to view Rijksmuseum works
 
- 1. Please sign up for a **Rijksmuseum** account [here](https://www.rijksmuseum.nl/en/collection).
+1. Please sign up for a **Rijksmuseum** account [here](https://www.rijksmuseum.nl/en/collection).
 
 2. Find your API key, which is located in the advanced settings of your Rijksmuseum account.
 
@@ -75,7 +102,6 @@ This project was written in JavaScript, HTML and CSS and used:
 4. Add the text `VITE_RIJKS_API_KEY=[YOUR-KEY-HERE]` to the .env file, replacing `[YOUR-KEY-HERE]` with your own Rijksmuseum API key.
 
 ※ The Cleveland Museum of Art API does not require a key for access
-
 
 ## Thank-yous
 
