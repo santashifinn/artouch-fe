@@ -621,7 +621,7 @@ ul {
   }
 
   .works-previews-image img {
-    width: 400px;
+    width: fit-content;
   }
 
   .works-previews-text-back {
