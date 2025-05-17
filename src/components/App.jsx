@@ -26,6 +26,7 @@ const App = () => {
   const [searchParams, setSearchParams] = useSearchParams("");
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   const type = searchParams.get("type");
   const q = searchParams.get("q");
@@ -59,7 +60,7 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <Header setCurrentPage={setCurrentPage} />
 
       <Routes>
         <Route
@@ -70,9 +71,21 @@ const App = () => {
                 setSearchParams={setSearchParams}
                 setCurrentPage={setCurrentPage}
               />
-              <PageNav />
+              <PageNav
+                totalWorks={totalWorks}
+                itemsPerPage={itemsPerPage}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                setSearchParams={setSearchParams}
+              />
               <ArtExhibition error={error} loading={loading} works={works} />
-              <PageNav />
+              <PageNav
+                totalWorks={totalWorks}
+                itemsPerPage={itemsPerPage}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                setSearchParams={setSearchParams}
+              />
             </>
           }
         />

@@ -35,6 +35,9 @@ const rijksApi = axios.create({
 const rijksApiKey = import.meta.env.VITE_RIJKS_API_KEY;
 
 const getRijks = (type, q, p) => {
+  if (p === undefined) {
+    p = 0;
+  }
   return rijksApi
     .get("", {
       params: {
@@ -68,7 +71,10 @@ const getCleveland = (type, q, p) => {
   } else if (adjustedType === "Clothing") {
     adjustedType = "Garment";
   }
-  const offset = p * 10;
+  if (p === undefined) {
+    p = 0;
+  }
+  const offset = p * 5;
   return clevelandApi
     .get("", {
       params: {
