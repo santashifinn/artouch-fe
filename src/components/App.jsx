@@ -50,6 +50,24 @@ const App = () => {
         setTotalWorks(data[0].count + data[1].info.total);
         setWorks((works) => [...data[0].artObjects, ...data[1].data]);
 
+        if (data[0].artObjects.length < 5) {
+          Promise.all([
+            getRijks(type, q, p),
+            getCleveland(type, q, p, 10 - data[0].artObjects.length),
+          ]).then((data) => {
+            setWorks((works) => [...data[0].artObjects, ...data[1].data]);
+          });
+        }
+
+        if (data[1].data.length < 5) {
+          Promise.all([
+            getRijks(type, q, (p/2), 10 - data[1].data.length),
+            getCleveland(type, q, p, 10 - data[0].artObjects.length),
+          ]).then((data) => {
+            setWorks((works) => [...data[0].artObjects, ...data[1].data]);
+          });
+        }
+
         setLoading(false);
       })
       .catch((error) => {

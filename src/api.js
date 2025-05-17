@@ -34,10 +34,12 @@ const rijksApi = axios.create({
 
 const rijksApiKey = import.meta.env.VITE_RIJKS_API_KEY;
 
-const getRijks = (type, q, p) => {
+const getRijks = (type, q, p, ps) => {
   if (p === undefined) {
     p = 0;
   }
+
+
   return rijksApi
     .get("", {
       params: {
@@ -45,7 +47,7 @@ const getRijks = (type, q, p) => {
         type: type,
         q: q,
         p: p,
-        ps: 5,
+        ps: ps || 5,
         key: rijksApiKey,
       },
     })
@@ -60,7 +62,7 @@ const clevelandApi = axios.create({
   baseURL: "https://openaccess-api.clevelandart.org/api/artworks/",
 });
 
-const getCleveland = (type, q, p) => {
+const getCleveland = (type, q, p, limit) => {
   let adjustedType = !type
     ? type
     : type.split("")[0].toUpperCase() + type.slice(1);
@@ -74,14 +76,16 @@ const getCleveland = (type, q, p) => {
   if (p === undefined) {
     p = 0;
   }
-  const offset = p * 5;
+
+  let offset = p * 5;
+  
   return clevelandApi
     .get("", {
       params: {
         has_image: 1,
         type: adjustedType,
         q: q,
-        limit: 5,
+        limit: limit || 5,
         skip: offset,
       },
     })
