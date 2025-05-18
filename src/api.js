@@ -24,6 +24,17 @@ const signUp = (userInfo) => {
   });
 };
 
+const getFavesbyUsername = (username) => {
+  return api.get(`/users/${username}/faves`).then(({ data }) => {
+    // console.log(data.faves);
+    return data.faves;
+  });
+};
+
+const deleteCollection = (username, collection) => {
+  return api.delete(`/users/${username}/${collection}`);
+};
+
 //Museum API calls
 
 //Rijksmuseum
@@ -38,8 +49,6 @@ const getRijks = (type, q, p, ps) => {
   if (p === undefined) {
     p = 0;
   }
-
-
   return rijksApi
     .get("", {
       params: {
@@ -48,6 +57,18 @@ const getRijks = (type, q, p, ps) => {
         q: q,
         p: p,
         ps: ps || 5,
+        key: rijksApiKey,
+      },
+    })
+    .then(({ data }) => {
+      return data;
+    });
+};
+
+const getPersonalRijks = (faveId) => {
+  return rijksApi
+    .get(`/${faveId}`, {
+      params: {
         key: rijksApiKey,
       },
     })
@@ -78,7 +99,7 @@ const getCleveland = (type, q, p, limit) => {
   }
 
   let offset = p * 5;
-  
+
   return clevelandApi
     .get("", {
       params: {
@@ -94,6 +115,26 @@ const getCleveland = (type, q, p, limit) => {
     });
 };
 
+const getPersonalCleveland = (faveId) => {
+  return clevelandApi
+    .get("", {
+      params: { accession_number: faveId, has_image: 1 },
+    })
+    .then(({ data }) => {
+      return data.data[0];
+    });
+};
+
 // Exporting
 
-export { getUserByUsername, signIn, signUp, getRijks, getCleveland };
+export {
+  getUserByUsername,
+  signIn,
+  signUp,
+  getFavesbyUsername,
+  deleteCollection,
+  getRijks,
+  getPersonalRijks,
+  getCleveland,
+  getPersonalCleveland,
+};

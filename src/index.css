@@ -385,7 +385,7 @@ header {
   width: 150px;
   background: #ebebeb;
   text-align: center;
-  height: 300px;
+  max-height: 300px;
   overflow: auto;
 }
 
@@ -615,6 +615,86 @@ ul {
 }
 
 /* Userpage */
+
+.userpage {
+  margin-bottom: 20px;
+}
+
+.userpage-text {
+  margin: 10px 20px;
+}
+
+.userpage p {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.userpage-name {
+  font-weight: 800;
+}
+
+.collections-list {
+  background-color: #cecece;
+  padding: 5px;
+}
+
+.collections-list p {
+  display: flex;
+  margin: 5px 15px;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.collection-selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.collection-selector-button-container {
+  display: flex;
+  position: relative;
+  max-width: 100%;
+  max-height: fit-content;
+  margin-bottom: 10px;
+}
+
+.collection-selector-button {
+  color: #fefffe;
+  background-color: #3e86a3;
+  min-width: 150px;
+  padding: 0 10px;
+  height: 60px;
+  border: 2px solid #3e86a3;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.collection-selector-button:hover {
+  border: 2px solid #fefffe;
+}
+
+#collection-selector-button-on {
+  cursor: auto;
+  border: 2px solid #faff99;
+}
+
+.collection-delete {
+  z-index: 10;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  color: #fefffe;
+  transition: all 0.3s ease-in-out;
+}
+
+.collection-delete:hover {
+  color: #faff99;
+}
+
+.collection-title {
+  font-size: 25px;
+}
 
 /* Computer screen CSS */
 

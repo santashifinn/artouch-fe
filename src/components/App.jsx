@@ -3,7 +3,7 @@ import { UserContext } from "../contexts/User";
 
 import { Routes, Route, useSearchParams } from "react-router";
 
-import { getRijks, getCleveland } from "../api";
+import { getRijks, getCleveland, getFavesbyUsername } from "../api";
 
 import Header from "./Header";
 import NavBar from "./NavBar";
@@ -19,6 +19,8 @@ const App = () => {
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const [collections, setCollections] = useState([]);
 
   const [works, setWorks] = useState([]);
   const [totalWorks, setTotalWorks] = useState(0);
@@ -44,6 +46,33 @@ const App = () => {
   }, [user]);
 
   useEffect(() => {
+    if (user !== null) {
+      getFavesbyUsername(user.username).then((faves) => {
+        faves.map((fave) => {
+          !collections.includes(fave.collection)
+            ? setCollections((collections) => [...collections, fave.collection])
+            : null;
+        });
+
+        setCollections((collections) => [...new Set(collections)]);
+
+        localStorage.setItem("Collections", collections);
+      });
+    }
+  }, [user]);
+
+  useEffect(() => {
+    const storedCollections = localStorage.getItem("collections");
+    if (storedCollections) {
+      setCollections(JSON.parse(storedCollections));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("collections", JSON.stringify(collections));
+  }, [user]);
+
+  useEffect(() => {
     setLoading(true);
     Promise.all([getRijks(type, q, p), getCleveland(type, q, p)])
       .then((data) => {
@@ -61,8 +90,8 @@ const App = () => {
 
         if (data[1].data.length < 5) {
           Promise.all([
-            getRijks(type, q, (p/2), 10 - data[1].data.length),
-            getCleveland(type, q, p, 10 - data[0].artObjects.length),
+            getRijks(type, q, p, 10 - data[1].data.length),
+            getCleveland(type, q, p),
           ]).then((data) => {
             setWorks((works) => [...data[0].artObjects, ...data[1].data]);
           });
@@ -108,7 +137,19 @@ const App = () => {
           }
         />
 
-        <Route path="/user" element={<Userpage />} />
+        <Route
+          path="/user"
+          element={
+            <Userpage
+              error={error}
+              setError={setError}
+              loading={loading}
+              setLoading={setLoading}
+              collections={collections}
+              setCollections={setCollections}
+            />
+          }
+        />
 
         <Route
           path="/signup"
