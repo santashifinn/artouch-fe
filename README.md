@@ -20,6 +20,13 @@ ARTouch is a web app designed to make finding your new favourite artworks a fun 
 
  - **ARTouch** is a web app with a responsive UI that intuitively guides users to search, view, and create curated exhibitions of artworks from the [**Rijksmuseum**](https://www.rijksmuseum.nl/en) in Amsterdam and the [**Cleveland Museum of Art**](https://www.clevelandart.org/) in Ohio
 
+ ### In full:
+
+ - Users can **browse artworks**, from a list view, with **"Previous" and "Next" page navigation options** to prevent loading of too many items at once
+ - Users can **search and filter artworks** to make it easier to navigate through larger lists of items
+ - Users can then **view images and essential details** about each artwork **individually** using a lightbox style display
+ - Users can **save their favourite artworks**, adding or removing pieces as they see fit, and view them at their leisure on their userpage
+
 ## How to use
 
 ### Search options
@@ -37,7 +44,6 @@ You can also **filter** the results further by these 10 **types** of work:
 - jewellery
 - clothing
 - embroidery
-
 
 ## Tech used
 

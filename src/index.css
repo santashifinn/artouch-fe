@@ -476,7 +476,64 @@ ul {
 
 /* Favourite Button */
 
+.add-to-faves {
+  position: absolute;
+  z-index: 20;
+  line-height: 1;
+  padding: 5px;
+  font-size: 30px;
+  color: #fefffe;
+  transition: all 0.3s ease-in-out;
+}
+
+.add-to-faves:hover {
+  color: #faff99;
+}
+
 /* Favourite Dropdown */
+
+.faves-dropdown {
+  z-index: 100;
+  position: absolute;
+  left: 10px;
+  top: 38px;
+  width: 250px;
+  max-height: 240px;
+  background: #ebebeb;
+  font-family: Zen Maru Gothic, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: scroll;
+}
+
+#faves-dropdown-first {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#faves-dropdown-last {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.faves-option-header {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.faves-option {
+  width: 100%;
+  padding: 10px;
+  transition: 0.5s padding, 0.5s background;
+}
+
+.faves-option:hover {
+  background: #cecece;
+}
 
 /* Lightbox */
 

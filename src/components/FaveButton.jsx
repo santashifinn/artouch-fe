@@ -1,10 +1,140 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/User";
 
-const FaveButton = () => {
-  const [user, setUser] = useContext(UserContext);
+import { getFavesbyUsername, addFave, deleteFave } from "../api";
 
-  return <></>;
+const FaveButton = ({
+  work,
+  refToShow,
+  idToShow,
+  collections,
+  setCollections,
+}) => {
+  const [user] = useContext(UserContext);
+
+  const [faveImages, setFaveImages] = useState([]);
+
+  const [favesOpen, setFavesOpen] = useState(false);
+
+  useEffect(() => {
+    if (user !== null) {
+      getFavesbyUsername(user.username).then((faves) => {
+        faves.map((fave) => {
+          !collections.includes(fave.collection)
+            ? setCollections((collections) => [...collections, fave.collection])
+            : null;
+
+          setFaveImages((faveImages) => [...faveImages, fave.work_id]);
+        });
+
+        setCollections((collections) => [...new Set(collections)]);
+
+        localStorage.setItem("Collections", collections);
+      });
+    }
+  }, [user]);
+
+  const handleFavesOpen = (event) => {
+    event.stopPropagation();
+    user ? setFavesOpen(!favesOpen) : alert("Please login to add favourites!");
+  };
+
+  const handleFave = (event, item, collection) => {
+    event.stopPropagation();
+    if (user !== null) {
+      !faveImages.includes(item)
+        ? item
+     !== undefined ? (addFave(user.username, collection, item),
+            setFaveImages([...faveImages, item]),
+            alert(`Work successfully added to ${collection}.`))
+          : alert("There was an error adding the work to your favourites.")
+        : (deleteFave(user.username, collection, item),
+          setFaveImages(faveImages.filter((id) => id !== item)),
+          alert(`Work successfully removed from ${collection}.`)),
+        setFavesOpen(!favesOpen);
+    } else {
+      alert("Please login to add favourites!");
+    }
+  };
+
+  const handleAddToNewCollection = (event, item) => {
+    event.stopPropagation();
+    let collection = prompt("Name new collection", "Max 20 characters");
+    if (collection == null || collection == "") {
+      alert(`No collection created.`);
+    } else if (collection.length > 20) {
+      alert(
+        `"${collection}" is too long. Please keep collection names 20 characters or under.`
+      );
+    } else {
+      addFave(user.username, collection, item);
+      setFaveImages([...faveImages, item]);
+      alert(`Collection "${collection}" created.`);
+    }
+    setFavesOpen(!favesOpen);
+  };
+
+  return (
+    <>
+      <button className="add-to-faves" onClick={handleFavesOpen}>
+        {refToShow === ""
+          ? typeof work.id === "number"
+            ? faveImages.includes(work.accession_number)
+              ? "★"
+              : "☆"
+            : faveImages.includes(work.objectNumber)
+            ? "★"
+            : "☆"
+          : typeof idToShow === "number"
+          ? faveImages.includes(refToShow)
+            ? "★"
+            : "☆"
+          : faveImages.includes(refToShow)
+          ? "★"
+          : "☆"}
+      </button>
+
+      {favesOpen ? (
+        <ul className="faves-dropdown">
+          <li key="explanation">
+            <div className="faves-option-header">
+              Add to/remove from collection:
+            </div>
+          </li>
+          {collections.map((collection) => {
+            return (
+              <li
+                key={collection}
+                onClick={(event) => {
+                  refToShow === ""
+                    ? typeof work.id === "number"
+                      ? handleFave(event, work.accession_number, collection)
+                      : handleFave(event, work.objectNumber, collection)
+                    : handleFave(event, refToShow, collection);
+                }}
+              >
+                <button className="faves-option">{collection}</button>
+              </li>
+            );
+          })}
+          <li
+            key="create-collection"
+            onClick={(event) => {
+              refToShow === ""
+                ? typeof work.id === "number"
+                  ? handleAddToNewCollection(event, work.accession_number)
+                  : handleAddToNewCollection(event, work.objectNumber)
+                : handleAddToNewCollection(event, refToShow);
+            }}
+          >
+            <button className="faves-option" id="faves-dropdown-last">
+              <span className="italics underline">+ Create collection +</span>
+            </button>
+          </li>
+        </ul>
+      ) : null}
+    </>
+  );
 };
 
 export default FaveButton;

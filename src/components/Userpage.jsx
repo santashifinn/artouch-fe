@@ -11,15 +11,15 @@ import {
 
 import FaveButton from "./FaveButton";
 
-const Userpage = (
-  {error,
+const Userpage = ({
+  error,
   setError,
   loading,
   setLoading,
   collections,
-  setCollections}
-) => {
-  const [user, setUser] = useContext(UserContext);
+  setCollections,
+}) => {
+  const [user] = useContext(UserContext);
 
   const [currentCollection, setCurrentCollection] = useState(
     collections.length === 0 || collections[0] === "Favourites"
@@ -45,7 +45,7 @@ const Userpage = (
           faves.map((fave) => {
             const newWork = fave.work_id;
             const newWorkCollection = fave.collection;
-            const regex = /\./;
+            const regex = /^[^A-Za-z]+$/;
 
             setUserWorks([]);
 
@@ -112,7 +112,15 @@ const Userpage = (
             ) : (
               <img src={noImageAvailable} alt="No image available" />
             )}
-            <FaveButton />
+            <FaveButton
+              work={refToShow}
+              refToShow={refToShow}
+              idToShow={idToShow}
+              collections={collections}
+              setCollections={setCollections}
+              userWorks={userWorks}
+              setUserWorks={setUserWorks}
+            />
             <span className="works-individual-text">{infoToShow}</span>
           </div>
         </div>
@@ -227,6 +235,7 @@ const Userpage = (
                 </div>
               ) : userWorks.length > 0 ? (
                 userWorks.map((userWork) => {
+                  console.log(userWork);
                   let work = "";
                   userWork.artObject
                     ? (work = userWork.artObject)
@@ -258,7 +267,15 @@ const Userpage = (
                             />
                           )}
                         </div>{" "}
-                        <FaveButton />
+                        <FaveButton
+                          work={work}
+                          refToShow={refToShow}
+                          idToShow={idToShow}
+                          collections={collections}
+                          setCollections={setCollections}
+                          userWorks={userWorks}
+                          setUserWorks={setUserWorks}
+                        />
                         <div className="works-previews-text-back"></div>
                         <div className="works-previews-text">
                           <span className="works-preview-text-title">

@@ -4,7 +4,13 @@ import FaveButton from "./FaveButton";
 
 import noImageAvailable from "/assets/no-image-available.jpg";
 
-const ArtExhibition = ({ error, loading, works }) => {
+const ArtExhibition = ({
+  error,
+  loading,
+  works,
+  collections,
+  setCollections,
+}) => {
   const [idToShow, setIdToShow] = useState("");
   const [imageToShow, setImageToShow] = useState("");
   const [infoToShow, setInfoToShow] = useState("");
@@ -40,7 +46,13 @@ const ArtExhibition = ({ error, loading, works }) => {
             ) : (
               <img src={noImageAvailable} alt="No image available" />
             )}
-            <FaveButton />
+            <FaveButton
+              work={refToShow}
+              refToShow={refToShow}
+              idToShow={idToShow}
+              collections={collections}
+              setCollections={setCollections}
+            />
             <span className="works-individual-text">{infoToShow}</span>
           </div>
         </div>
@@ -77,7 +89,13 @@ const ArtExhibition = ({ error, loading, works }) => {
                       <img src={noImageAvailable} alt="No image available" />
                     )}
                   </div>{" "}
-                  <FaveButton />
+                  <FaveButton
+                    work={work}
+                    refToShow={refToShow}
+                    idToShow={idToShow}
+                    collections={collections}
+                    setCollections={setCollections}
+                  />
                   <div className="works-previews-text-back"></div>
                   <div className="works-previews-text">
                     <span className="works-preview-text-title">

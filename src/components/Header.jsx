@@ -5,7 +5,7 @@ import { Link } from "react-router";
 
 import userIcon from "/assets/user-icon.svg";
 
-const Header = ({ setCurrentPage }) => {
+const Header = (setCurrentPage) => {
   const [user, setUser] = useContext(UserContext);
 
   const [userOpen, setUserOpen] = useState(false);

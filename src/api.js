@@ -26,13 +26,24 @@ const signUp = (userInfo) => {
 
 const getFavesbyUsername = (username) => {
   return api.get(`/users/${username}/faves`).then(({ data }) => {
-    // console.log(data.faves);
     return data.faves;
   });
 };
 
 const deleteCollection = (username, collection) => {
   return api.delete(`/users/${username}/${collection}`);
+};
+
+const addFave = (username, collection, work_id) => {
+  return api
+    .post(`/users/${username}/${collection}/${work_id}`)
+    .then(({ data }) => {
+      return data;
+    });
+};
+
+const deleteFave = (username, collection, work_id) => {
+  return api.delete(`/users/${username}/${collection}/${work_id}`);
 };
 
 //Museum API calls
@@ -133,6 +144,8 @@ export {
   signUp,
   getFavesbyUsername,
   deleteCollection,
+  addFave,
+  deleteFave,
   getRijks,
   getPersonalRijks,
   getCleveland,

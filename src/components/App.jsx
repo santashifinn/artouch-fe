@@ -3,7 +3,7 @@ import { UserContext } from "../contexts/User";
 
 import { Routes, Route, useSearchParams } from "react-router";
 
-import { getRijks, getCleveland, getFavesbyUsername } from "../api";
+import { getRijks, getCleveland } from "../api";
 
 import Header from "./Header";
 import NavBar from "./NavBar";
@@ -46,22 +46,6 @@ const App = () => {
   }, [user]);
 
   useEffect(() => {
-    if (user !== null) {
-      getFavesbyUsername(user.username).then((faves) => {
-        faves.map((fave) => {
-          !collections.includes(fave.collection)
-            ? setCollections((collections) => [...collections, fave.collection])
-            : null;
-        });
-
-        setCollections((collections) => [...new Set(collections)]);
-
-        localStorage.setItem("Collections", collections);
-      });
-    }
-  }, [user]);
-
-  useEffect(() => {
     const storedCollections = localStorage.getItem("collections");
     if (storedCollections) {
       setCollections(JSON.parse(storedCollections));
@@ -70,7 +54,7 @@ const App = () => {
 
   useEffect(() => {
     localStorage.setItem("collections", JSON.stringify(collections));
-  }, [user]);
+  }, [collections]);
 
   useEffect(() => {
     setLoading(true);
@@ -125,7 +109,13 @@ const App = () => {
                 setCurrentPage={setCurrentPage}
                 setSearchParams={setSearchParams}
               />
-              <ArtExhibition error={error} loading={loading} works={works} />
+              <ArtExhibition
+                error={error}
+                loading={loading}
+                works={works}
+                collections={collections}
+                setCollections={setCollections}
+              />
               <PageNav
                 totalWorks={totalWorks}
                 itemsPerPage={itemsPerPage}
