@@ -24,20 +24,22 @@ const Header = (setCurrentPage) => {
   return (
     <>
       <header>
-        <div className="header-text">
+        <div>
           <Link
             to="/"
             onClick={() => {
               setCurrentPage(1);
             }}
           >
-            AR<span className="teal-colour">T</span>ouch ☜
+            <h1>
+              AR<span className="teal-colour">T</span>ouch ☜
+            </h1>
           </Link>
         </div>
 
         <button onClick={handleUserOpen}>
           <div className="user-icon-container">
-            <img src={userIcon} alt="user-button" className="user-button" />
+            <img src={userIcon} alt="User icon" className="user-button" />
           </div>
         </button>
 

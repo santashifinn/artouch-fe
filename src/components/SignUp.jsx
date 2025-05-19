@@ -103,6 +103,7 @@ const SignUp = ({ error, setError, loading, setLoading }) => {
                 type="text"
                 placeholder="Enter username"
                 name="username"
+                id="username"
                 value={inputs.username || ""}
                 required
                 onChange={handleChange}
@@ -114,6 +115,7 @@ const SignUp = ({ error, setError, loading, setLoading }) => {
                 type="text"
                 placeholder="Enter email"
                 name="email"
+                id="email"
                 value={inputs.email || ""}
                 required
                 onChange={handleChange}
@@ -125,6 +127,7 @@ const SignUp = ({ error, setError, loading, setLoading }) => {
                 type="password"
                 placeholder="Enter password"
                 name="password"
+                id="password"
                 value={inputs.password || ""}
                 required
                 onChange={handleChange}

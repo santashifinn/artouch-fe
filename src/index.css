@@ -10,7 +10,7 @@
   font-family: Zen Maru Gothic, Arial, Helvetica, sans-serif;
   font-size: 18px;
   background-color: #e2e2e2;
-  color: #5f5353;
+  color: #443B3B;
 }
 
 a {
@@ -35,7 +35,7 @@ a {
 }
 
 .teal-colour {
-  color: #3e86a3;
+  color: #3A7D98;
 }
 
 button {
@@ -100,10 +100,20 @@ li {
 header {
   display: flex;
   justify-content: space-between;
+  padding: 20px 40px 5px;
+  border-bottom: 3px solid #443B3B;
+}
+
+header h1 {
   font-family: Fascinate Inline, Arial, Helvetica, sans-serif;
   font-size: 50px;
-  padding: 20px 40px 5px;
-  border-bottom: 3px solid #5f5353;
+  font-weight: 400;
+  color: #5f5353;
+  transition: all 0.3s ease-in-out;
+}
+
+header h1:hover {
+  color: #3A7D98;
 }
 
 .user-icon-container {
@@ -124,15 +134,6 @@ header {
 .user-button {
   left: 0;
   width: 50px;
-}
-
-.header-text {
-  right: 0;
-  transition: all 0.3s ease-in-out;
-}
-
-.header-text:hover {
-  color: #3e86a3;
 }
 
 .user-dropdown {
@@ -177,7 +178,7 @@ header {
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
-  background-color: #9c9c9c;
+  background-color: #737373;
 }
 
 .filter-and-sort-list {
@@ -191,18 +192,22 @@ header {
   display: block;
   width: 150px;
   height: 40px;
-  background: #9c9c9c;
+  background: #737373;
   text-align: center;
-  color: #fefffe;
-  font-weight: 800;
   transition: 0.3s background-color;
+}
+
+.filter-and-sort-title h2 {
+  color: #fefffe;
+  font-size: 21px;
+  font-weight: 800;
 }
 
 .filter-and-sort-title:before {
   content: "";
   display: block;
   height: 0;
-  border-top: 5px solid #9c9c9c;
+  border-top: 5px solid #737373;
   border-left: 75px solid transparent;
   border-right: 75px solid transparent;
   border-bottom: 0 solid #dddddd;
@@ -214,10 +219,10 @@ header {
 }
 
 .filter-and-sort-title:hover {
-  background: #5f5353;
+  background: #443B3B;
 }
 .filter-and-sort-title:hover:before {
-  border-top-color: #5f5353;
+  border-top-color: #443B3B;
 }
 
 .filter-and-sort-click:hover > .filter-and-sort-title:before {
@@ -320,9 +325,19 @@ header {
   padding: 5px;
 }
 
+.search-input label {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
 .search-input input {
   width: 100%;
   height: 100%;
+  padding: 0 10px 0 0;
   background-color: transparent;
   border: none;
   margin-left: 10px;
@@ -351,7 +366,7 @@ header {
   font-weight: 800;
   color: #fefffe;
   width: 150px;
-  background-color: #9c9c9c;
+  background-color: #737373;
   border-radius: 10px;
   text-align: center;
   padding: 15px;
@@ -359,7 +374,7 @@ header {
 }
 
 .prev-next-button:hover {
-  background-color: #5f5353;
+  background-color: #443B3B;
 }
 
 .prev-next-button:disabled {
@@ -626,7 +641,7 @@ ul {
 }
 
 .loginsignup-link:hover {
-  color: #3e86a3;
+  color: #3A7D98;
 }
 
 .signup-form {
@@ -648,7 +663,7 @@ ul {
   font-family: Zen Maru Gothic, Arial, Helvetica, sans-serif;
   font-size: 18px;
   padding: 5px 15px;
-  border: 2px solid #9c9c9c;
+  border: 2px solid #737373;
   border-radius: 20px;
   width: 100%;
   max-width: 600px;
@@ -660,14 +675,14 @@ ul {
   background-color: #cecece;
   width: 200px;
   padding: 10px;
-  border: 2px solid #9c9c9c;
+  border: 2px solid #737373;
   border-radius: 20px;
   transition: all 0.3s ease-in-out;
 }
 
 .signup-form button:hover {
-  background-color: #9c9c9c;
-  border: 2px solid #5f5353;
+  background-color: #737373;
+  border: 2px solid #443B3B;
   color: #fefffe;
 }
 
@@ -695,7 +710,7 @@ ul {
   padding: 5px;
 }
 
-.collections-list p {
+.collections-list h2 {
   display: flex;
   margin: 5px 15px;
   font-weight: 800;
@@ -718,11 +733,11 @@ ul {
 
 .collection-selector-button {
   color: #fefffe;
-  background-color: #3e86a3;
+  background-color: #3A7D98;
   min-width: 150px;
   padding: 0 10px;
   height: 60px;
-  border: 2px solid #3e86a3;
+  border: 2px solid #3A7D98;
   border-radius: 20px;
   transition: all 0.3s ease-in-out;
 }

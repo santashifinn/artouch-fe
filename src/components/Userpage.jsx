@@ -149,7 +149,7 @@ const Userpage = ({
             </div>
 
             <div className="collections-list">
-              <p>Collections:</p>
+              <h2>Collections:</h2>
 
               <div className="collection-selector">
                 {collections.length === 0 ? (

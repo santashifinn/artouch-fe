@@ -84,7 +84,7 @@ const NavBar = ({ setSearchParams, setCurrentPage }) => {
         <ul className="filter-and-sort-list">
           <li className="filter-and-sort-click">
             <button className="filter-and-sort-title" onClick={handleTypeOpen}>
-              <h3>TYPE</h3>
+              <h2>TYPE</h2>
             </button>
             {typeOpen ? (
               <ul className="filter-and-sort-dropdown">
@@ -122,10 +122,12 @@ const NavBar = ({ setSearchParams, setCurrentPage }) => {
         </ul>
 
         <form className="search-input">
+          <label htmlFor="q">Search works:</label>
           🔍
           <input
             type="text"
             name="q"
+            id="q"
             value={searchField}
             placeholder="Search works"
             onChange={(event) => {
