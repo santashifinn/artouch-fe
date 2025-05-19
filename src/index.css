@@ -10,7 +10,7 @@
   font-family: Zen Maru Gothic, Arial, Helvetica, sans-serif;
   font-size: 18px;
   background-color: #e2e2e2;
-  color: #443B3B;
+  color: #443b3b;
 }
 
 a {
@@ -35,7 +35,7 @@ a {
 }
 
 .teal-colour {
-  color: #3A7D98;
+  color: #3a7d98;
 }
 
 button {
@@ -101,7 +101,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 20px 40px 5px;
-  border-bottom: 3px solid #443B3B;
+  border-bottom: 3px solid #443b3b;
 }
 
 header h1 {
@@ -113,7 +113,7 @@ header h1 {
 }
 
 header h1:hover {
-  color: #3A7D98;
+  color: #3a7d98;
 }
 
 .user-icon-container {
@@ -219,10 +219,10 @@ header h1:hover {
 }
 
 .filter-and-sort-title:hover {
-  background: #443B3B;
+  background: #443b3b;
 }
 .filter-and-sort-title:hover:before {
-  border-top-color: #443B3B;
+  border-top-color: #443b3b;
 }
 
 .filter-and-sort-click:hover > .filter-and-sort-title:before {
@@ -326,12 +326,12 @@ header h1:hover {
 }
 
 .search-input label {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .search-input input {
@@ -374,7 +374,7 @@ header h1:hover {
 }
 
 .prev-next-button:hover {
-  background-color: #443B3B;
+  background-color: #443b3b;
 }
 
 .prev-next-button:disabled {
@@ -494,10 +494,11 @@ ul {
 .add-to-faves {
   position: absolute;
   z-index: 20;
-  line-height: 1;
-  padding: 5px;
   font-size: 30px;
   color: #fefffe;
+  background-color: #443b3b55;
+  border-radius: 20px 5px;
+  padding: 0 12px 6px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -641,7 +642,7 @@ ul {
 }
 
 .loginsignup-link:hover {
-  color: #3A7D98;
+  color: #3a7d98;
 }
 
 .signup-form {
@@ -682,7 +683,7 @@ ul {
 
 .signup-form button:hover {
   background-color: #737373;
-  border: 2px solid #443B3B;
+  border: 2px solid #443b3b;
   color: #fefffe;
 }
 
@@ -733,11 +734,11 @@ ul {
 
 .collection-selector-button {
   color: #fefffe;
-  background-color: #3A7D98;
+  background-color: #3a7d98;
   min-width: 150px;
   padding: 0 10px;
   height: 60px;
-  border: 2px solid #3A7D98;
+  border: 2px solid #3a7d98;
   border-radius: 20px;
   transition: all 0.3s ease-in-out;
 }
@@ -810,8 +811,11 @@ ul {
 @media only screen and (max-width: 440px) {
   /* Header */
   header {
-    font-size: 40px;
     padding: 10px 20px 5px;
+  }
+
+  header h1 {
+    font-size: 40px;
   }
 
   .user-dropdown {
@@ -843,8 +847,11 @@ ul {
 @media only screen and (max-width: 340px) {
   /* Header */
   header {
-    font-size: 38px;
     padding: 10px 15px 5px;
+  }
+
+  header h1 {
+    font-size: 38px;
   }
 
   .user-icon-container {

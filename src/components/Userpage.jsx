@@ -92,13 +92,16 @@ const Userpage = ({
   };
 
   const handleDeleteCollection = (event) => {
-    if (confirm("Do you really want to delete this collection?")) {
+    if (
+      confirm(`${user.username.split("")[0].toUpperCase() 
+                   + user.username.slice(1)}, do you really want to delete collection "${event.target.id}"?`)
+    ) {
       deleteCollection(user.username, event.target.id);
       setCurrentCollection("Favourites");
       setCollections(collections.filter((id) => id !== event.target.id));
       alert(`Collection "${event.target.id}" deleted.`);
     } else {
-      alert(`Deletion cancelled.`);
+      alert(`Deletion of collection "${event.target.id}" cancelled.`);
     }
   };
 
@@ -235,7 +238,6 @@ const Userpage = ({
                 </div>
               ) : userWorks.length > 0 ? (
                 userWorks.map((userWork) => {
-                  console.log(userWork);
                   let work = "";
                   userWork.artObject
                     ? (work = userWork.artObject)
