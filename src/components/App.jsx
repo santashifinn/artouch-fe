@@ -74,7 +74,12 @@ const App = () => {
 
         if (data[1].data.length < 5) {
           Promise.all([
-            getRijks(type, q, p, 10 - data[1].data.length),
+            getRijks(
+              type,
+              q,
+              p - Math.ceil(data[1].info.total / 10),
+              10 - data[1].data.length
+            ),
             getCleveland(type, q, p),
           ]).then((data) => {
             setWorks((works) => [...data[0].artObjects, ...data[1].data]);
