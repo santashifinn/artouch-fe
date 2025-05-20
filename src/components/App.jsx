@@ -60,7 +60,9 @@ const App = () => {
     setLoading(true);
     Promise.all([getRijks(type, q, p), getCleveland(type, q, p)])
       .then((data) => {
-        setTotalWorks(data[0].count + data[1].info.total);
+        if (data[0].count + data[1].info.total <= 10000)
+          {setTotalWorks(data[0].count + data[1].info.total)} else {setTotalWorks(10000)}
+        console.log(totalWorks)
         setWorks((works) => [...data[0].artObjects, ...data[1].data]);
 
         if (data[0].artObjects.length < 5) {
