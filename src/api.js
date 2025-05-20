@@ -57,9 +57,12 @@ const rijksApi = axios.create({
 const rijksApiKey = import.meta.env.VITE_RIJKS_API_KEY;
 
 const getRijks = (type, q, p, ps) => {
-  if (p === undefined) {
+  if (p === undefined || p === null) {
     p = 0;
   }
+
+  let returnLimit = ps || 5;
+
   return rijksApi
     .get("", {
       params: {
@@ -67,7 +70,7 @@ const getRijks = (type, q, p, ps) => {
         type: type,
         q: q,
         p: p,
-        ps: ps || 5,
+        ps: returnLimit,
         key: rijksApiKey,
       },
     })
@@ -94,7 +97,7 @@ const clevelandApi = axios.create({
   baseURL: "https://openaccess-api.clevelandart.org/api/artworks/",
 });
 
-const getCleveland = (type, q, p, limit) => {
+const getCleveland = (type, q, p, limit, totalRijksWorks) => {
   let adjustedType = !type
     ? type
     : type.split("")[0].toUpperCase() + type.slice(1);
@@ -105,11 +108,21 @@ const getCleveland = (type, q, p, limit) => {
   } else if (adjustedType === "Clothing") {
     adjustedType = "Garment";
   }
-  if (p === undefined) {
+
+  if (p === undefined || p === null) {
     p = 0;
   }
 
-  let offset = p * 5;
+  let offset = 0;
+  let returnLimit = limit || 5;
+
+  if (p === 0) {
+    offset = 0;
+  } else if (totalRijksWorks) {
+    offset = (p - 1) * returnLimit - totalRijksWorks;
+  } else {
+    offset = (p - 1) * returnLimit;
+  }
 
   return clevelandApi
     .get("", {
@@ -117,7 +130,7 @@ const getCleveland = (type, q, p, limit) => {
         has_image: 1,
         type: adjustedType,
         q: q,
-        limit: limit || 5,
+        limit: returnLimit,
         skip: offset,
       },
     })

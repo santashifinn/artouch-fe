@@ -60,31 +60,36 @@ const App = () => {
     setLoading(true);
     Promise.all([getRijks(type, q, p), getCleveland(type, q, p)])
       .then((data) => {
-        if (data[0].count + data[1].info.total <= 10000)
-          {setTotalWorks(data[0].count + data[1].info.total)} else {setTotalWorks(10000)}
-        setWorks((works) => [...data[0].artObjects, ...data[1].data]);
+        const totalRijksWorks = data[0].count;
+        const totalClevelandWorks = data[1].info.total;
 
-        if (data[0].artObjects.length < 5) {
-          Promise.all([
-            getRijks(type, q, p),
-            getCleveland(type, q, p, 10 - data[0].artObjects.length),
-          ]).then((data) => {
-            setWorks((works) => [...data[0].artObjects, ...data[1].data]);
-          });
+        if (totalRijksWorks + totalClevelandWorks <= 10000) {
+          setTotalWorks(totalRijksWorks + totalClevelandWorks);
+        } else {
+          setTotalWorks(10000);
         }
 
-        if (data[1].data.length < 5) {
+        const rijksReceived = Math.min(data[0].artObjects.length, 5);
+        const clevelandReceived = Math.min(data[1].data.length, 5);
+
+        if (rijksReceived < clevelandReceived) {
           Promise.all([
-            getRijks(
-              type,
-              q,
-              p - Math.ceil(data[1].info.total / 10),
-              10 - data[1].data.length
-            ),
+            getRijks(type, q, p),
+            getCleveland(type, q, p, 10 - rijksReceived, totalRijksWorks),
+          ]).then((data) => {
+            setWorks(() => [...data[0].artObjects, ...data[1].data]);
+          });
+        } else if (rijksReceived > clevelandReceived) {
+          const totalClevelandPages = Math.ceil(totalClevelandWorks / 10);
+
+          Promise.all([
+            getRijks(type, q, p - totalClevelandPages, 10 - clevelandReceived),
             getCleveland(type, q, p),
           ]).then((data) => {
-            setWorks((works) => [...data[0].artObjects, ...data[1].data]);
+            setWorks(() => [...data[0].artObjects, ...data[1].data]);
           });
+        } else if (rijksReceived === clevelandReceived) {
+          setWorks(() => [...data[0].artObjects, ...data[1].data]);
         }
 
         setLoading(false);
