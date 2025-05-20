@@ -96,7 +96,7 @@ const SignUp = ({ error, setError, loading, setLoading }) => {
       ) : (
         <section className="loginsignup">
           <h2>Sign Up</h2>
-          <form className="signup-form" onSubmit={handleSubmit}>
+          <form className="loginsignup-form" onSubmit={handleSubmit}>
             <label htmlFor="username">
               Username:
               <input

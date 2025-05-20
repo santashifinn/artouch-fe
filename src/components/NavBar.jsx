@@ -80,14 +80,14 @@ const NavBar = ({ setSearchParams, setCurrentPage }) => {
 
   return (
     <>
-      <nav className="filter-and-sort">
-        <ul className="filter-and-sort-list">
-          <li className="filter-and-sort-click">
-            <button className="filter-and-sort-title" onClick={handleTypeOpen}>
+      <nav id="filter-and-sort">
+        <ul id="filter-and-sort-list">
+          <li id="filter-and-sort-click">
+            <button id="filter-and-sort-title" onClick={handleTypeOpen}>
               <h2>TYPE</h2>
             </button>
             {typeOpen ? (
-              <ul className="filter-and-sort-dropdown">
+              <ul id="filter-and-sort-dropdown">
                 <li key="type-all">
                   <button
                     id="filter-type"
@@ -121,7 +121,7 @@ const NavBar = ({ setSearchParams, setCurrentPage }) => {
           </li>
         </ul>
 
-        <form className="search-input">
+        <form id="search-input">
           <label htmlFor="q">Search works:</label>
           🔍
           <input

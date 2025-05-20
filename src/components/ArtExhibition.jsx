@@ -39,7 +39,7 @@ const ArtExhibition = ({
   return (
     <>
       {lightboxDisplay ? (
-        <div id="lightbox" onClick={hideLightBox}>
+        <div className="lightbox" onClick={hideLightBox}>
           <div className="works-individual">
             {imageToShow !== "/Static/Images/Responsive/1x1.png" ? (
               <img src={imageToShow} alt={infoToShow}></img>

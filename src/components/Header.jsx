@@ -38,8 +38,8 @@ const Header = (setCurrentPage) => {
         </div>
 
         <button onClick={handleUserOpen}>
-          <div className="user-icon-container">
-            <img src={userIcon} alt="User icon" className="user-button" />
+          <div id="user-icon-container">
+            <img src={userIcon} alt="User icon" id="user-button" />
           </div>
         </button>
 

@@ -86,7 +86,7 @@ li {
 
 /* 404 Not Found */
 
-.not-found {
+#not-found {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
@@ -109,14 +109,19 @@ header h1 {
   font-size: 50px;
   font-weight: 400;
   color: #5f5353;
-  transition: all 0.3s ease-in-out;
 }
 
 header h1:hover {
-  color: #3e86a3;
+  animation: header-move 0.5s 1;
 }
 
-.user-icon-container {
+@keyframes header-move {
+  50% {
+    word-spacing: 10px;
+  }
+}
+
+#user-icon-container {
   display: flex;
   justify-content: center;
   margin: 5px 0;
@@ -126,12 +131,12 @@ header h1:hover {
   transition: all 0.3s ease-in-out;
 }
 
-.user-icon-container:hover {
+#user-icon-container:hover {
   filter: brightness(0) saturate(100%) invert(48%) sepia(64%) saturate(378%)
     hue-rotate(152deg) brightness(86%) contrast(91%);
 }
 
-.user-button {
+#user-button {
   left: 0;
   width: 50px;
 }
@@ -174,21 +179,21 @@ header h1:hover {
 
 /* Filter/Search Navigation Bar */
 
-.filter-and-sort {
+#filter-and-sort {
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
   background-color: #737373;
 }
 
-.filter-and-sort-list {
+#filter-and-sort-list {
   position: relative;
   list-style: none;
 }
 
 /* Dropdown Filter */
 
-.filter-and-sort-title {
+#filter-and-sort-title {
   display: block;
   width: 150px;
   height: 40px;
@@ -197,13 +202,13 @@ header h1:hover {
   transition: 0.3s background-color;
 }
 
-.filter-and-sort-title h2 {
+#filter-and-sort-title h2 {
   color: #fefffe;
   font-size: 21px;
   font-weight: 800;
 }
 
-.filter-and-sort-title:before {
+#filter-and-sort-title:before {
   content: "";
   display: block;
   height: 0;
@@ -218,19 +223,19 @@ header h1:hover {
   transition: 0.2s 0.2s border-top ease-out, 0.3s border-top-color;
 }
 
-.filter-and-sort-title:hover {
+#filter-and-sort-title:hover {
   background: #443b3b;
 }
-.filter-and-sort-title:hover:before {
+#filter-and-sort-title:hover:before {
   border-top-color: #443b3b;
 }
 
-.filter-and-sort-click:hover > .filter-and-sort-title:before {
+#filter-and-sort-click:hover > #filter-and-sort-title:before {
   border-top-width: 0;
   transition: 0.2s border-top-width ease-in, 0.3s border-top-color;
 }
 
-.filter-and-sort-title:after {
+#filter-and-sort-title:after {
   content: "";
   display: block;
   height: 0;
@@ -244,12 +249,12 @@ header h1:hover {
   transition: 0.2s border-bottom ease-in;
 }
 
-.filter-and-sort-click:hover > .filter-and-sort-title:after {
+#filter-and-sort-click:hover > #filter-and-sort-title:after {
   border-bottom-width: 5px;
   transition: 0.2s 0.2s border-bottom-width ease-out;
 }
 
-.filter-and-sort-dropdown {
+#filter-and-sort-dropdown {
   min-width: 150px;
   padding: 15px 0;
   position: absolute;
@@ -258,7 +263,7 @@ header h1:hover {
   transition: 0.5s padding, 0.5s background;
 }
 
-.filter-and-sort-dropdown:after {
+#filter-and-sort-dropdown:after {
   content: "";
   display: block;
   height: 0;
@@ -272,21 +277,21 @@ header h1:hover {
   transition: 0.5s border-top;
 }
 
-.filter-and-sort-click:not(:hover) > .filter-and-sort-dropdown {
+#filter-and-sort-click:not(:hover) > #filter-and-sort-dropdown {
   padding: 4px 0;
   background: #dddddd;
   z-index: 99;
 }
 
-.filter-and-sort-click:not(:hover) > .filter-and-sort-dropdown:after {
+#filter-and-sort-click:not(:hover) > #filter-and-sort-dropdown:after {
   border-top-color: #dddddd;
 }
 
-.filter-and-sort-click:not(:hover) > .filter-and-sort-title:after {
+#filter-and-sort-click:not(:hover) > #filter-and-sort-title:after {
   border-bottom-color: #dddddd;
 }
 
-.filter-and-sort-dropdown > * {
+#filter-and-sort-dropdown > * {
   overflow: hidden;
   height: 30px;
   padding: 0 10px;
@@ -298,11 +303,11 @@ header h1:hover {
     0.2s background-color;
 }
 
-.filter-and-sort-dropdown > *:hover {
+#filter-and-sort-dropdown > *:hover {
   background: rgba(0, 0, 0, 0.1);
 }
 
-.filter-and-sort-click:not(:hover) > .filter-and-sort-dropdown > * {
+#filter-and-sort-click:not(:hover) > #filter-and-sort-dropdown > * {
   visibility: hidden;
   height: 0;
   padding-top: 0;
@@ -316,7 +321,7 @@ header h1:hover {
 
 /* Search Bar */
 
-.search-input {
+#search-input {
   display: flex;
   align-items: center;
   background-color: #fefffe;
@@ -325,7 +330,7 @@ header h1:hover {
   padding: 5px;
 }
 
-.search-input label {
+#search-input label {
   position: absolute;
   left: -10000px;
   top: auto;
@@ -334,7 +339,7 @@ header h1:hover {
   overflow: hidden;
 }
 
-.search-input input {
+#search-input input {
   width: 100%;
   height: 100%;
   padding: 0 10px 0 0;
@@ -345,7 +350,7 @@ header h1:hover {
   font-size: 20px;
 }
 
-.search-input input:focus {
+#search-input input:focus {
   outline: none;
 }
 
@@ -361,7 +366,7 @@ header h1:hover {
 }
 
 .prev-next-button {
-  /* z-index: 10; */
+  z-index: 3;
   font-style: inherit;
   font-weight: 800;
   color: #fefffe;
@@ -383,6 +388,7 @@ header h1:hover {
 }
 
 .pagination-info {
+  z-index: 2;
   text-align: center;
   margin: 10px;
 }
@@ -553,7 +559,7 @@ ul {
 
 /* Lightbox */
 
-#lightbox {
+.lightbox {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -645,7 +651,7 @@ ul {
   color: #3a7d98;
 }
 
-.signup-form {
+.loginsignup-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -655,12 +661,12 @@ ul {
   max-width: 600px;
 }
 
-.signup-form label {
+.loginsignup-form label {
   padding: 10px;
   text-align: left;
 }
 
-.signup-form input {
+.loginsignup-form input {
   font-family: Zen Maru Gothic, Arial, Helvetica, sans-serif;
   font-size: 18px;
   padding: 5px 15px;
@@ -670,7 +676,7 @@ ul {
   max-width: 600px;
 }
 
-.signup-form button {
+.loginsignup-form button {
   margin: auto;
   margin-top: 20px;
   background-color: #cecece;
@@ -681,7 +687,7 @@ ul {
   transition: all 0.3s ease-in-out;
 }
 
-.signup-form button:hover {
+.loginsignup-form button:hover {
   background-color: #737373;
   border: 2px solid #443b3b;
   color: #fefffe;
@@ -689,7 +695,7 @@ ul {
 
 /* Userpage */
 
-.userpage {
+#userpage {
   margin-bottom: 20px;
 }
 
@@ -697,28 +703,28 @@ ul {
   margin: 10px 20px;
 }
 
-.userpage p {
+#userpage p {
   margin-bottom: 10px;
   font-size: 20px;
 }
 
-.userpage-name {
+#userpage-name {
   font-weight: 800;
 }
 
-.collections-list {
+#collections-list {
   background-color: #cecece;
   padding: 5px;
 }
 
-.collections-list h2 {
+#collections-list h2 {
   display: flex;
   margin: 5px 15px;
   font-weight: 800;
   font-size: 18px;
 }
 
-.collection-selector {
+#collection-selector {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -765,7 +771,7 @@ ul {
   color: #faff99;
 }
 
-.collection-title {
+#collection-title {
   font-size: 25px;
 }
 

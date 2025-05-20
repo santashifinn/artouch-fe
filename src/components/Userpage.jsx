@@ -108,7 +108,7 @@ const Userpage = ({
   return (
     <>
       {lightboxDisplay ? (
-        <div id="lightbox" onClick={hideLightBox}>
+        <div className="lightbox" onClick={hideLightBox}>
           <div className="works-individual">
             {imageToShow !== "/Static/Images/Responsive/1x1.png" ? (
               <img src={imageToShow} alt={infoToShow}></img>
@@ -133,11 +133,11 @@ const Userpage = ({
 
       {user !== null ? (
         <>
-          <div className="userpage">
+          <section id="userpage">
             <div className="userpage-text">
               <p>
                 Hello{" "}
-                <span className="userpage-name">
+                <span id="userpage-name">
                   {user.username.split("")[0].toUpperCase() +
                     user.username.slice(1)}
                 </span>
@@ -151,10 +151,10 @@ const Userpage = ({
               </p>
             </div>
 
-            <div className="collections-list">
+            <div id="collections-list">
               <h2>Collections:</h2>
 
-              <div className="collection-selector">
+              <div id="collection-selector">
                 {collections.length === 0 ? (
                   <div className="collection-selector-button-container">
                     <button
@@ -223,7 +223,7 @@ const Userpage = ({
 
             <div className="userpage-text">
               <p>
-                <span className="collection-title">
+                <span id="collection-title">
                   {currentCollection} ({userWorks.length})
                 </span>
               </p>
@@ -300,7 +300,7 @@ const Userpage = ({
                 "No results available"
               )}
             </ul>
-          </div>
+          </section>
         </>
       ) : (
         <Navigate to="/login" replace />
