@@ -9,7 +9,7 @@ import App from "./components/App.jsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/artouch">
     <Suspense fallback="...is loading">
       <User>
         <App />

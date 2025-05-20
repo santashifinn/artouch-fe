@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "import.meta.env.PUBLIC_URL",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "vite build --base=/artouch",
     "lint": "eslint .",
     "preview": "vite preview"
   },
