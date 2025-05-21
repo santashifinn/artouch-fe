@@ -24,7 +24,10 @@ const FaveButton = ({
             ? setCollections((collections) => [...collections, fave.collection])
             : null;
 
-          setFaveImages((faveImages) => [...faveImages, fave.work_id]);
+          setFaveImages((faveImages) => [
+            ...faveImages,
+            [fave.work_id, fave.collection],
+          ]);
         });
 
         setCollections((collections) => [...new Set(collections)]);
@@ -42,16 +45,21 @@ const FaveButton = ({
   const handleFave = (event, item, collection) => {
     event.stopPropagation();
     if (user !== null) {
-      !faveImages.includes(item)
-        ? item
-     !== undefined ? (addFave(user.username, collection, item),
-            setFaveImages([...faveImages, item]),
-            alert(`Work successfully added to ${collection}.`))
-          : alert("There was an error adding the work to your favourites.")
-        : (deleteFave(user.username, collection, item),
-          setFaveImages(faveImages.filter((id) => id !== item)),
-          alert(`Work successfully removed from ${collection}.`)),
-        setFavesOpen(!favesOpen);
+
+      let favesInChosenCollection = []
+
+      faveImages.map((faveImage) => {console.log(faveImage); if (faveImage[1] === collection) {favesInChosenCollection.push(faveImage[0])}})
+
+        !favesInChosenCollection.includes(item)
+          ? item !== undefined
+            ? (addFave(user.username, collection, item),
+              setFaveImages([...faveImages, [item, collection]]),
+              alert(`Work successfully added to ${collection}.`))
+            : alert("There was an error adding the work to your favourites.")
+          : (deleteFave(user.username, collection, item),
+            setFaveImages(faveImages.filter((faveSet) => !faveSet.includes(item && collection))),
+            alert(`Work successfully removed from ${collection}.`)),
+          setFavesOpen(!favesOpen);
     } else {
       alert("Please login to add favourites!");
     }
@@ -79,17 +87,17 @@ const FaveButton = ({
       <button className="add-to-faves" onClick={handleFavesOpen}>
         {refToShow === ""
           ? typeof work.id === "number"
-            ? faveImages.includes(work.accession_number)
+            ? faveImages.flat().includes(work.accession_number)
               ? "★"
               : "☆"
-            : faveImages.includes(work.objectNumber)
+            : faveImages.flat().includes(work.objectNumber)
             ? "★"
             : "☆"
           : typeof idToShow === "number"
-          ? faveImages.includes(refToShow)
+          ? faveImages.flat().includes(refToShow)
             ? "★"
             : "☆"
-          : faveImages.includes(refToShow)
+          : faveImages.flat().includes(refToShow)
           ? "★"
           : "☆"}
       </button>
