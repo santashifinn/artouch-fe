@@ -571,6 +571,16 @@ ul {
   height: 100%;
   z-index: 9999;
   background-color: #44b1f099;
+  animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
 }
 
 .works-individual {

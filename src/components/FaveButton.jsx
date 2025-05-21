@@ -45,21 +45,28 @@ const FaveButton = ({
   const handleFave = (event, item, collection) => {
     event.stopPropagation();
     if (user !== null) {
+      let favesInChosenCollection = [];
 
-      let favesInChosenCollection = []
+      faveImages.map((faveImage) => {
+        if (faveImage[1] === collection) {
+          favesInChosenCollection.push(faveImage[0]);
+        }
+      });
 
-      faveImages.map((faveImage) => {console.log(faveImage); if (faveImage[1] === collection) {favesInChosenCollection.push(faveImage[0])}})
-
-        !favesInChosenCollection.includes(item)
-          ? item !== undefined
-            ? (addFave(user.username, collection, item),
-              setFaveImages([...faveImages, [item, collection]]),
-              alert(`Work successfully added to ${collection}.`))
-            : alert("There was an error adding the work to your favourites.")
-          : (deleteFave(user.username, collection, item),
-            setFaveImages(faveImages.filter((faveSet) => !faveSet.includes(item && collection))),
-            alert(`Work successfully removed from ${collection}.`)),
-          setFavesOpen(!favesOpen);
+      !favesInChosenCollection.includes(item)
+        ? item !== undefined
+          ? (addFave(user.username, collection, item),
+            setFaveImages([...faveImages, [item, collection]]),
+            alert(`Work successfully added to ${collection}.`))
+          : alert("There was an error adding the work to your favourites.")
+        : (deleteFave(user.username, collection, item),
+          setFaveImages(
+            faveImages.filter(
+              (faveSet) => !faveSet.includes(item && collection)
+            )
+          ),
+          alert(`Work successfully removed from ${collection}.`)),
+        setFavesOpen(!favesOpen);
     } else {
       alert("Please login to add favourites!");
     }
