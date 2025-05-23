@@ -20,6 +20,7 @@ const ArtExhibition = ({
           works.map((work) => {
             return (
               <Artwork
+                key={work.id}
                 work={work}
                 collections={collections}
                 setCollections={setCollections}
