@@ -65,6 +65,45 @@ If you click on an image or its text, a larger version of the image will be disp
 
 If you are logged in and click on the star in the top left corner of the image, you can add it to or remove it from one of your existing personal collections, ex. "Favourites", or create a new collection to add it to.
 
+![An alert box with the text "Name new collection" with space to enter text and the options "cancel" or "OK"](readme/readme-newcollection.png)
+
+If you choose to create a new collection, you can enter any name up to 20 characters in length.
+
+### Sign Up / Login pages
+
+#### Sign Up
+
+![A website with the header ARTouch, a user icon and a sign up form with fields for username, email and password, with password requirements listed](readme/readme-signup.png)
+
+To sign up you need to enter a username, email and password.
+
+The password must:
+- be 8 characters or more
+- contain at least 1 lowercase letter
+- contain at least 1 uppercase letter
+- contain at least 1 number
+- contain at least 1 special character
+
+Once you meet one of the password criteria, its ✘ will become a ✔.
+
+After successfully signing up, you will be redirected to your Userpage.
+
+#### Login
+
+![A website with the header ARTouch, a user icon and a login form with fields for username and password](readme/readme-login.png)
+
+To log in you need to enter a valid username and password. After successfully logging in, you will be redirected to your Userpage.
+
+### Userpage
+
+![A website with the header ARTouch, a user icon, greeting text reading "Hello Amber! You have 14 saved works across 2 collections.", a list of collections ("Favourites" and "Swan Heaven"), and the 3 works saves in the collection Swan Heaven: "The Threatened Swan by Jan Asselijn", "The Square Book of Animals: The Beautiful Swan by William Nicholson" and "Fox and Swan Creamer"](readme/readme-userpage.png)
+
+When logged in, you can view your userpage and see the total number of works you have saved and how many collections you have.
+
+You will see a list of your collections and can click on them to switch between them.
+
+If you wish, you can delete a collection by clicking on the ✘ in the top right corner of the collection name and confirming your choice in the alert box.
+
 ## Tech used
 
 This project was written in JavaScript, HTML and CSS and used:
