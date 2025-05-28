@@ -57,13 +57,13 @@ You can also **filter** the results further by these 10 **types** of work:
 
 ![An expanded image of a woman with black hair in a blue dress sitting in a wooden armchair, next to a wooden table with a vase of flowers on top, and with a sunflower-yellow background, with the text "Portrait of Dora Wheeler, 1882–83. William Merritt Chase (American, 1849–1916)."](readme/readme-expandedimage.png)
 
-If you click on an image or its text, a larger version of the image will be displayed with more detailed information.
+If you **click on an image or its text**, a **larger version** of the image will be displayed with **more detailed information**.
 
 #### Adding to Collections
 
 ![A dropdown menu showing "Add to/remove from collection:" and the choice of "Favourites" or "Swan Heaven", or "Create collection"](readme/readme-favourites.png)
 
-If you are logged in and click on the star in the top left corner of the image, you can add it to or remove it from one of your existing personal collections, ex. "Favourites", or create a new collection to add it to.
+If you are logged in and **click on the star** in the top left corner of the image, you can **add the work to or remove it from one of your existing personal collections**, ex. "Favourites", or **create a new collection** to add it to.
 
 ![An alert box with the text "Name new collection" with space to enter text and the options "cancel" or "OK"](readme/readme-newcollection.png)
 
@@ -75,7 +75,7 @@ If you choose to create a new collection, you can enter any name up to 20 charac
 
 ![A website with the header ARTouch, a user icon and a sign up form with fields for username, email and password, with password requirements listed](readme/readme-signup.png)
 
-To sign up you need to enter a username, email and password.
+To **sign up** you need to enter a **username, email and password**.
 
 The password must:
 - be 8 characters or more
@@ -92,21 +92,23 @@ After successfully signing up, you will be redirected to your Userpage.
 
 ![A website with the header ARTouch, a user icon and a login form with fields for username and password](readme/readme-login.png)
 
-To log in you need to enter a valid username and password. After successfully logging in, you will be redirected to your Userpage.
+To **log in** you need to enter a **valid username and password**. After successfully logging in, you will be redirected to your Userpage.
 
 ### Userpage
 
 ![A website with the header ARTouch, a user icon, greeting text reading "Hello Amber! You have 14 saved works across 2 collections.", a list of collections ("Favourites" and "Swan Heaven"), and the 3 works saves in the collection Swan Heaven: "The Threatened Swan by Jan Asselijn", "The Square Book of Animals: The Beautiful Swan by William Nicholson" and "Fox and Swan Creamer"](readme/readme-userpage.png)
 
-When logged in, you can view your userpage and see the total number of works you have saved and how many collections you have.
+When logged in, you can view your userpage and see the **total number of works** you have saved and **how many collections** you have.
 
-You will see a list of your collections and can click on them to switch between them.
+You will see a **list of your collections** and can click on them to switch between them.
 
-If you wish, you can delete a collection by clicking on the ✘ in the top right corner of the collection name and confirming your choice in the alert box.
+If you wish, you can **delete** a collection by clicking on the **✘** in the top right corner of the collection name and confirming your choice in the alert box.
+
+NB. The **"Favourites"** collection itself cannot be deleted as it is the default collection for all users, but you can still add or remove works from it as you choose.
 
 ## Tech used
 
-This project was written in JavaScript, HTML and CSS and used:
+This project was written in **JavaScript**, **HTML** and **CSS** and used:
 
 ### Frontend:
 
@@ -175,4 +177,4 @@ This project was written in JavaScript, HTML and CSS and used:
 
 ## Thank-yous
 
-Thank you firstly to Northcoders/Launchpad for requesting this project, to you for taking the time to check it out, and to my cat Amber for her unwavering support and snuggles while bringing ARTouch to life.
+Thank you firstly to **Northcoders/Launchpad** for requesting this project, to **you** for taking the time to check it out, and to my cat **Amber** for her unwavering support and snuggles while bringing **ARTouch** to life.
