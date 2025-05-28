@@ -53,6 +53,18 @@ You can also **filter** the results further by these 10 **types** of work:
 - clothing
 - embroidery
 
+#### Expanding Images
+
+![An expanded image of a woman with black hair in a blue dress sitting in a wooden armchair, next to a wooden table with a vase of flowers on top, and with a sunflower-yellow background, with the text "Portrait of Dora Wheeler, 1882–83. William Merritt Chase (American, 1849–1916)."](readme/readme-expandedimage.png)
+
+If you click on an image or its text, a larger version of the image will be displayed with more detailed information.
+
+#### Adding to Collections
+
+![A dropdown menu showing "Add to/remove from collection:" and the choice of "Favourites" or "Swan Heaven", or "Create collection"](readme/readme-favourites.png)
+
+If you are logged in and click on the star in the top left corner of the image, you can add it to or remove it from one of your existing personal collections, ex. "Favourites", or create a new collection to add it to.
+
 ## Tech used
 
 This project was written in JavaScript, HTML and CSS and used:
