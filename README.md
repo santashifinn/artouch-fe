@@ -29,9 +29,17 @@ ARTouch is a web app designed to make finding your new favourite artworks a fun 
 
 ## How to use
 
-### Search options
+### Main page
+
+![A website with the header ARTouch, a user icon, a 'type' dropdown menu, a search-bar, and the first two results for the search: "Self-portrait by Vincent Van Gogh" and "Children of the Sea by Jozef Israëls"](readme/readme-mainscreen.png)
+
+#### Search options
+
+![A search bar where you can enter any word or term you would like to search for](readme/readme-search.png)
 
 You can enter any word or term you like into the **search bar** and press **enter** to search.
+
+![A dropdown filter selection with the options: all, drawing, painting, sculpture, photograph, print, furniture, jewellery, clothing and embroidery](readme/readme-filter.png)
 
 You can also **filter** the results further by these 10 **types** of work:
 - all (every type of work is included)
@@ -58,10 +66,15 @@ This project was written in JavaScript, HTML and CSS and used:
 - dotenv
 - eslint
 
-## APIs used
+### APIs used
 
 - Rijksmuseum
 - Cleveland Museum of Art
+
+### UI considerations:
+
+ -  **Accessibility for users with disabilities** is taken into account, eg. alternative text, good contrasts for readability
+ - **Alerts**, **loading states** and **error messages** are provided so that the user can clearly understand problems - or lack of them!
 
 ## Planning
 
