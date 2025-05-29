@@ -31,7 +31,17 @@ ARTouch is a web app designed to make finding your new favourite artworks a fun 
 
 ### Main page
 
-![A website with the header ARTouch, a user icon, a 'type' dropdown menu, a search-bar, and the first two results for the search: "Self-portrait by Vincent Van Gogh" and "Children of the Sea by Jozef Israëls"](readme/readme-mainscreen.png)
+![A website with the header ARTouch, a user icon, a 'type' drop-down menu, a search-bar, and the first two results for the search: "Self-portrait by Vincent Van Gogh" and "Children of the Sea by Jozef Israëls"](readme/readme-mainscreen.png)
+
+#### Navigation
+
+![A section of a website with "PREVIOUS" and "NEXT" buttons and the information "Page 4 / 1000" with a drop-down menu below it showing the numbers 1 to 10](readme/readme-navigation.png)
+
+Depending on the number of results available, there will be up to 10 works displayed per page, 5 from the [**Rijksmuseum**] and 5 from the [**Cleveland Museum of Art**]. If no more works are available from one museum, the deficit will be made up with works from the other museum.
+
+You can navigate between pages using the **"PREVIOUS"** and **"NEXT**" buttons or by clicking on the page numbers. Clicking on the **total page number** will take you to the last page, while clicking on the **current page number** will bring up a drop-down menu where you can select your chosen page.
+
+NB. The maximum number of pages is capped at 1000 (10,000 works) in order to limit strain on the museum APIs.
 
 #### Search options
 
@@ -39,7 +49,7 @@ ARTouch is a web app designed to make finding your new favourite artworks a fun 
 
 You can enter any word or term you like into the **search bar** and press **enter** to search.
 
-![A dropdown filter selection with the options: all, drawing, painting, sculpture, photograph, print, furniture, jewellery, clothing and embroidery](readme/readme-filter.png)
+![A drop-down filter menu with the options: all, drawing, painting, sculpture, photograph, print, furniture, jewellery, clothing and embroidery](readme/readme-filter.png)
 
 You can also **filter** the results further by these 10 **types** of work:
 - all (every type of work is included)
@@ -61,7 +71,7 @@ If you **click on an image or its text**, a **larger version** of the image will
 
 #### Adding to Collections
 
-![A dropdown menu showing "Add to/remove from collection:" and the choice of "Favourites" or "Swan Heaven", or "Create collection"](readme/readme-favourites.png)
+![A drop-down menu showing "Add to/remove from collection:" and the choice of "Favourites" or "Swan Heaven", or "Create collection"](readme/readme-favourites.png)
 
 If you are logged in and **click on the star** in the top left corner of the image, you can **add the work to or remove it from one of your existing personal collections**, ex. "Favourites", or **create a new collection** to add it to.
 
