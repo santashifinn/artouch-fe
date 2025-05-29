@@ -37,7 +37,7 @@ ARTouch is a web app designed to make finding your new favourite artworks a fun 
 
 ![A section of a website with "PREVIOUS" and "NEXT" buttons and the information "Page 4 / 1000" with a drop-down menu below it showing the numbers 1 to 10](readme/readme-navigation.png)
 
-Depending on the number of results available, there will be up to 10 works displayed per page, 5 from the [**Rijksmuseum**] and 5 from the [**Cleveland Museum of Art**]. If no more works are available from one museum, the deficit will be made up with works from the other museum.
+Depending on the number of results available, there will be up to 10 works displayed per page, 5 from the **Rijksmuseum** and 5 from the **Cleveland Museum of Art**. If no more works are available from one museum, the deficit will be made up with works from the other museum.
 
 You can navigate between pages using the **"PREVIOUS"** and **"NEXT**" buttons or by clicking on the page numbers. Clicking on the **total page number** will take you to the last page, while clicking on the **current page number** will bring up a drop-down menu where you can select your chosen page.
 

@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/User";
+import { FavesContext } from "../contexts/Faves";
 
 import { Link } from "react-router";
 
@@ -7,6 +8,8 @@ import userIcon from "/assets/user-icon.svg";
 
 const Header = (setCurrentPage) => {
   const [user, setUser] = useContext(UserContext);
+
+  const [faveImages, setFaveImages] = useContext(FavesContext);
 
   const [userOpen, setUserOpen] = useState(false);
 
@@ -18,6 +21,7 @@ const Header = (setCurrentPage) => {
     setUserOpen(!userOpen);
     localStorage.removeItem("user");
     setUser(null);
+    setFaveImages([])
     alert("Successfully logged out.");
   };
 

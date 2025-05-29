@@ -2,7 +2,8 @@ import React, { Suspense } from "react";
 import { BrowserRouter } from "react-router";
 import { createRoot } from "react-dom/client";
 
-import { User } from "./contexts/User.jsx";
+import { User } from "./contexts/User";
+import { Faves } from "./contexts/Faves";
 
 import App from "./components/App.jsx";
 
@@ -12,7 +13,9 @@ createRoot(document.getElementById("root")).render(
   <BrowserRouter basename="/artouch">
     <Suspense fallback="...is loading">
       <User>
-        <App />
+        <Faves>
+          <App />
+        </Faves>
       </User>
     </Suspense>
   </BrowserRouter>

@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/User";
+import { FavesContext } from "../contexts/Faves";
 
 import { getFavesbyUsername, addFave, deleteFave } from "../api";
+
 
 const FaveButton = ({
   work,
@@ -12,7 +14,7 @@ const FaveButton = ({
 }) => {
   const [user] = useContext(UserContext);
 
-  const [faveImages, setFaveImages] = useState([]);
+  const [faveImages, setFaveImages] = useContext(FavesContext);
 
   const [favesOpen, setFavesOpen] = useState(false);
 
@@ -62,7 +64,7 @@ const FaveButton = ({
         : (deleteFave(user.username, collection, item),
           setFaveImages(
             faveImages.filter(
-              (faveSet) => !faveSet.includes(item && collection)
+              (faveSet) => !faveSet.includes(item)
             )
           ),
           alert(`Work successfully removed from ${collection}.`)),
