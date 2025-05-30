@@ -95,6 +95,12 @@ li {
   max-width: 100%;
 }
 
+/* Apple Watch */
+
+.apple-watch {
+  display: none;
+}
+
 /* Header */
 
 header {
@@ -912,4 +918,54 @@ ul {
   .works-previews-text:hover {
     transform: translateY(-10%);
   }
+}
+
+/* Small phone screen CSS */
+
+@media only screen and (max-width: 200px) {
+  /* Everything */
+  header {
+    display: none;
+  }
+
+  nav {
+    display: none;
+  }
+
+  #filter-and-sort {
+    display: none;
+  }
+
+  #art-exhibition {
+    display: none;
+  }
+
+  /* Apple Watch */
+
+  .apple-watch {
+    display: contents;
+  }
+
+  .apple-watch h1 {
+    padding: 5px;
+    font-family: Fascinate Inline, Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    color: #5f5353;
+  }
+  
+  .apple-watch h1:hover {
+    animation: header-move 0.5s 1;
+  }
+  
+  @keyframes header-move {
+    50% {
+      word-spacing: 5px;
+    }
+  }
+
+  .apple-watch p {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+
 }

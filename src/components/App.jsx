@@ -102,6 +102,13 @@ const App = () => {
 
   return (
     <>
+      <section className="apple-watch">
+        <h1>
+          AR<span className="teal-colour">T</span>ouch ☜
+        </h1>
+        <p>Please view on a device with a larger screen!</p>
+      </section>
+
       <Header setCurrentPage={setCurrentPage} />
 
       <Routes>

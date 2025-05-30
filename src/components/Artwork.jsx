@@ -32,64 +32,69 @@ const Artwork = ({ work, collections, setCollections }) => {
 
   return (
     <>
-      {lightboxDisplay ? (
-        <div className="lightbox" onClick={hideLightBox}>
-          <div className="works-individual">
-            {imageToShow !== "/Static/Images/Responsive/1x1.png" ? (
-              <img src={imageToShow} alt={infoToShow}></img>
-            ) : (
-              <img src={noImageAvailable} alt="No image available" />
-            )}
+      <section className="artwork">
+        {lightboxDisplay ? (
+          <div className="lightbox" onClick={hideLightBox}>
+            <div className="works-individual">
+              {imageToShow !== "/Static/Images/Responsive/1x1.png" ? (
+                <img src={imageToShow} alt={infoToShow}></img>
+              ) : (
+                <img src={noImageAvailable} alt="No image available" />
+              )}
+              <FaveButton
+                work={refToShow}
+                refToShow={refToShow}
+                idToShow={idToShow}
+                collections={collections}
+                setCollections={setCollections}
+              />
+              <span className="works-individual-text">{infoToShow}</span>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+
+        <li key={work.id}>
+          <div
+            className="works-previews-card"
+            onClick={() => showDetails(work)}
+          >
+            <div className="works-previews-image">
+              {typeof work.id === "number" ? (
+                !work.images.web ? (
+                  <img src={noImageAvailable} alt="No image available" />
+                ) : (
+                  <img src={work.images.web.url} alt={work.title} />
+                )
+              ) : work.webImage.url !== "/Static/Images/Responsive/1x1.png" ? (
+                <img src={work.webImage.url} alt={work.title} />
+              ) : (
+                <img src={noImageAvailable} alt="No image available" />
+              )}
+            </div>{" "}
             <FaveButton
-              work={refToShow}
+              work={work}
               refToShow={refToShow}
               idToShow={idToShow}
               collections={collections}
               setCollections={setCollections}
             />
-            <span className="works-individual-text">{infoToShow}</span>
+            <div className="works-previews-text-back"></div>
+            <div className="works-previews-text">
+              <span className="works-preview-text-title">{work.title}</span>{" "}
+              <br /> by <br />
+              <span className="works-preview-text-creator">
+                {typeof work.id === "number"
+                  ? work.creators[0]
+                    ? work.creators[0].description.split("(")[0]
+                    : "anonymous"
+                  : work.principalOrFirstMaker}
+              </span>
+            </div>
           </div>
-        </div>
-      ) : (
-        ""
-      )}
-
-      <li key={work.id}>
-        <div className="works-previews-card" onClick={() => showDetails(work)}>
-          <div className="works-previews-image">
-            {typeof work.id === "number" ? (
-              !work.images.web ? (
-                <img src={noImageAvailable} alt="No image available" />
-              ) : (
-                <img src={work.images.web.url} alt={work.title} />
-              )
-            ) : work.webImage.url !== "/Static/Images/Responsive/1x1.png" ? (
-              <img src={work.webImage.url} alt={work.title} />
-            ) : (
-              <img src={noImageAvailable} alt="No image available" />
-            )}
-          </div>{" "}
-          <FaveButton
-            work={work}
-            refToShow={refToShow}
-            idToShow={idToShow}
-            collections={collections}
-            setCollections={setCollections}
-          />
-          <div className="works-previews-text-back"></div>
-          <div className="works-previews-text">
-            <span className="works-preview-text-title">{work.title}</span>{" "}
-            <br /> by <br />
-            <span className="works-preview-text-creator">
-              {typeof work.id === "number"
-                ? work.creators[0]
-                  ? work.creators[0].description.split("(")[0]
-                  : "anonymous"
-                : work.principalOrFirstMaker}
-            </span>
-          </div>
-        </div>
-      </li>
+        </li>
+      </section>
     </>
   );
 };
