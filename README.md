@@ -29,6 +29,10 @@ ARTouch is a web app designed to make finding your new favourite artworks a fun 
 
 ## How to use
 
+### Video Guide
+
+[![A Youtube guide to the ARTouch project](readme/artouch-video-screenshot.jpg)](https://youtu.be/w-BuOFN6sn8)
+
 ### Main page
 
 ![A website with the header ARTouch, a user icon, a 'type' drop-down menu, a search-bar, and the first two results for the search: "Self-portrait by Vincent Van Gogh" and "Children of the Sea by Jozef Israëls"](readme/readme-mainscreen.png)
